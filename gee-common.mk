@@ -251,6 +251,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true
 
+# Enable smooth-streaming video-playback
+PRODUCT_PROPERTY_OVERRIDES += \
+    mm.enable.smoothstreaming=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
         debug.egl.recordable.rgba8888=1
 
