@@ -22,4 +22,6 @@
     <bool name="wantsFocusModes">true</bool>
     <!-- Continues focus mode needs autofocus call -->
     <bool name="continuousFocusNeedsAutoFocusCall">true</bool>
+    <!-- Use ZSL mode for Qualcomm cameras -->	21
+    <bool name="enableZSL">true</bool>
 </resources>
