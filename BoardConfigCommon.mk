@@ -95,7 +95,7 @@ TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT := caf
 
 BOARD_USES_QCOM_HARDWARE := true
-#TARGET_USES_QCOM_BSP := true
+TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP_CAMERA_ABI_HACK
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
@@ -163,8 +163,6 @@ HAVE_ADRENO_SOURCE:= false
 -include vendor/lge/gee/BoardConfigVendor.mk
 
 TARGET_INIT_VENDOR_LIB := libinit_msm
-
-BOARD_RIL_CLASS := ../../../device/lge/gee-common/ril/
 
 BOARD_HARDWARE_CLASS := device/lge/gee-common/cmhw/
 
