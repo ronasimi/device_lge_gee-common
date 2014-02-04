@@ -163,6 +163,8 @@ HAVE_ADRENO_SOURCE:= false
 
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
+BOARD_HARDWARE_CLASS := device/lge/gee-common/cmhw/
+
 #TWRP config
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_SDCARD_ON_DATA := true
