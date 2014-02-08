@@ -108,7 +108,7 @@
       <Video codec="h264"
              bitRate="8000000"
              width="1920"
-             height="1088"
+             height="1080"
              frameRate="30" />
       <Audio codec="aac"
              bitRate="96000"
@@ -184,7 +184,7 @@
       <Video codec="h264"
              bitRate="20000000"
              width="1920"
-             height="1088"
+             height="1080"
              frameRate="30" />
       <Audio codec="aac"
              bitRate="320000"
@@ -208,7 +208,7 @@
       <Video codec="h264"
              bitRate="14000000"
              width="1920"
-             height="1088"
+             height="1080"
              frameRate="30" />
       <Audio codec="aac"
              bitRate="96000"
@@ -287,7 +287,7 @@
       <Video codec="h264"
              bitRate="20000000"
              width="1920"
-             height="1088"
+             height="1080"
              frameRate="30" />
         <!-- audio setting is ignored -->
         <Audio codec="aac"
@@ -503,7 +503,7 @@
   <VideoEncoderCap name="h264" enabled="true"
       minBitRate="64000" maxBitRate="20000000"
       minFrameWidth="176" maxFrameWidth="1920"
-      minFrameHeight="144" maxFrameHeight="1088"
+      minFrameHeight="144" maxFrameHeight="1080"
       minFrameRate="1" maxFrameRate="30" />
 
   <VideoEncoderCap name="h263" enabled="true"
@@ -515,7 +515,7 @@
   <VideoEncoderCap name="m4v" enabled="true"
       minBitRate="64000" maxBitRate="20000000"
       minFrameWidth="176" maxFrameWidth="1920"
-      minFrameHeight="144" maxFrameHeight="1088"
+      minFrameHeight="144" maxFrameHeight="1080"
       minFrameRate="1" maxFrameRate="30" />
 
   <!-- [G][AUDIO_FWK_Start] 2012-07-12, sunghun1.jung@lge.com, [common] Change Audio Profile-->
@@ -537,7 +537,7 @@
   <VideoDecoderCap name="wmv" enabled="true"/>
   <AudioDecoderCap name="wma" enabled="true"/>
 
-  <VideoEditorCap maxInputFrameWidth="1920" maxInputFrameHeight="1088" maxOutputFrameWidth="1920" maxOutputFrameHeight="1088" maxPrefetchYUVFrames="3"/>
+  <VideoEditorCap maxInputFrameWidth="1920" maxInputFrameHeight="1080" maxOutputFrameWidth="1920" maxOutputFrameHeight="1080" maxPrefetchYUVFrames="3"/>
 
   <ExportVideoProfile name="h263" profile="1" level="16"/>
   <ExportVideoProfile name="h264" profile="1" level="16"/>
