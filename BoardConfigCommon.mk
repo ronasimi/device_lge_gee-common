@@ -24,7 +24,6 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
 TARGET_ARCH_VARIANT_CPU := cortex-a15
 TARGET_ARCH_VARIANT_FPU := neon-vfpv4
-TARGET_MPDECISION_BOOST_SOCKET := /dev/socket/mpdecision/touchboost
 
 # Krait optimization 
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
