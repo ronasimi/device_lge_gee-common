@@ -217,9 +217,6 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
- # adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 70
-
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
@@ -293,9 +290,6 @@ on charger
     # communicate with mpdecision and thermald
     mkdir /dev/socket/mpdecision 0770 system system
     chmod 2770 /dev/socket/mpdecision
-
-    # adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 90
 
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
