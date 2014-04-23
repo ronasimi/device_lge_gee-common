@@ -294,13 +294,6 @@ on charger
     chown system system /sys/class/leds/led:red/brightness
     chown system system /sys/class/leds/led:green/brightness
 
-    # communicate with mpdecision and thermald
-    mkdir /dev/socket/mpdecision 0770 system system
-    chmod 2770 /dev/socket/mpdecision
-
-    # adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 90
-
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
@@ -434,6 +427,12 @@ service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usbdisk /storage/usbdisk
     class late_start
     disabled
+
+service thermald /system/bin/thermald
+    class main
+
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class main
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
