@@ -57,6 +57,9 @@ PRODUCT_COPY_FILES += \
 	device/lge/gee-common/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
+	device/lge/gee-common/conf/thermald-geeb.conf:system/etc/thermald.conf
+
+PRODUCT_COPY_FILES += \
 	device/lge/gee-common/ramdisk/init.qcom.rc:root/init.qcom.rc \
 	device/lge/gee-common/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	device/lge/gee-common/ramdisk/fstab.qcom:root/fstab.qcom \
