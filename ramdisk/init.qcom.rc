@@ -294,6 +294,10 @@ on charger
     chown system system /sys/class/leds/led:red/brightness
     chown system system /sys/class/leds/led:green/brightness
 
+    # communicate with mpdecision and thermald
+    mkdir /dev/socket/mpdecision 0770 system system
+    chmod 2770 /dev/socket/mpdecision
+
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
