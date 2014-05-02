@@ -244,6 +244,10 @@ on post-fs-data
     chmod 0664 /sys/devices/virtual/input/lge_touch/keypad_enable
     restorecon /sys/devices/virtual/input/lge_touch/keypad_enable
 
+    # communicate with mpdecision and thermald
+    mkdir /dev/socket/mpdecision 0770 system system
+    chmod 2770 /dev/socket/mpdecision
+
  # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 70
 
@@ -427,12 +431,6 @@ service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usbdisk /s
     class late_start
     disabled
 
-service thermald /system/bin/thermald
-    class main
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-    class main
-
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
@@ -470,7 +468,6 @@ service diag_mdlog /system/bin/diag_mdlog -s 100
 service fetch-swv /system/bin/fetch-swv
     class late_start
     oneshot
-
 
 service qrngd /system/bin/qrngd -f
     class main
