@@ -220,31 +220,13 @@ on post-fs-data
     rm /data/local/tmp/adreno_config.txt
 
     # LED On/Off synchronization
-    chown system system /sys/class/leds/led:red/device/lock
+    chown system system /sys/class/leds/red/device/lock
 
-    chmod 644 /sys/class/leds/button-backlight/brightness
-    chmod 644 /sys/class/leds/led:red/brightness
-    chmod 644 /sys/class/leds/led:green/brightness
+    # communicate with mpdecision and thermald
+    mkdir /dev/socket/mpdecision 0770 system system
+    chmod 2770 /dev/socket/mpdecision
 
-    chown system system /sys/class/leds/button-backlight/brightness
-    chown system system /sys/class/leds/led:red/brightness
-    chown system system /sys/class/leds/led:green/brightness
-
-    # Enable Power modes and set the CPU Freq Sampling rates
-    write /sys/module/rpm_resources/enable_low_power/L2_cache 1
-    write /sys/module/rpm_resources/enable_low_power/pxo 1
-    write /sys/module/rpm_resources/enable_low_power/vdd_dig 1
-    write /sys/module/rpm_resources/enable_low_power/vdd_mem 1
-    write /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu2/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu3/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
-    chown root system /sys/devices/virtual/input/lge_touch/keypad_enable
-    chmod 0664 /sys/devices/virtual/input/lge_touch/keypad_enable
-    restorecon /sys/devices/virtual/input/lge_touch/keypad_enable
-
- # adjust vibrator amplitude
+    # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 70
 
     # Enable Power modes and set the CPU Freq Sampling rates
@@ -269,23 +251,17 @@ on post-fs-data
     write /sys/module/pm_8x60/modes/cpu2/standalone_power_collapse/idle_enabled 1
     write /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/idle_enabled 1
     write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
-    # yongmin.jung@lge.com 2012.07.25 change fix L1 Cache Error problem
-    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled 0
-    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled 0
-    write /sys/module/pm_8x60/modes/cpu2/standalone_power_collapse/suspend_enabled 0
-    write /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/suspend_enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
 
-# Chown cpu online files as needed for the Settings app
+    # Chown cpu online files as needed for the Settings app
     chown system system /sys/devices/system/cpu/cpu1/online
     chown system system /sys/devices/system/cpu/cpu2/online
     chown system system /sys/devices/system/cpu/cpu3/online
 
-    start mpdecision
-
+    # Hardware tunables
     chown root system /sys/class/timed_output/vibrator/amp
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
@@ -429,7 +405,7 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  1
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service charger /charger
     class charger
@@ -451,9 +427,6 @@ service thermald /system/bin/thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
-    user root
-    group root
-    disabled
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
