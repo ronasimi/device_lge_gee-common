@@ -279,6 +279,8 @@ on post-fs-data
     write /sys/devices/system/cpu/cpu3/online 1
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
 
+    start mpdecision
+
 # Chown cpu online files as needed for the Settings app
     chown system system /sys/devices/system/cpu/cpu1/online
     chown system system /sys/devices/system/cpu/cpu2/online
@@ -437,6 +439,9 @@ service thermald /system/bin/thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
+    user root
+    group root
+    disabled
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
