@@ -40,6 +40,8 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 # Enable various prefetch optimizations
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 
+TARGET_MPDECISION_BOOST_SOCKET := /dev/socket/mpdecision/touchboost
+
 TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
@@ -63,8 +65,12 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOOTLOADER_BOARD_NAME := GEE
 TARGET_BOOTLOADER_NAME=gee
+TARGET_BOARD_INFO_FILE := device/lge/geeb/board-info.txt
 
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/gee-common/bluetooth
+
+# Use the CM PowerHAL
+TARGET_USES_CM_POWERHAL := true
 
 # FIXME: HOSTAPD-derived wifi driver
 BOARD_HAS_QCOM_WLAN := true
@@ -144,7 +150,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 #Custom HALs
 TARGET_PROVIDES_LIBLIGHT := true
-#TARGET_USES_CM_POWERHAL := true
 USE_DEVICE_SPECIFIC_CAMERA:= true
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
 
@@ -153,8 +158,6 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 HAVE_ADRENO_SOURCE:= false
 
 -include vendor/lge/gee/BoardConfigVendor.mk
-
-TARGET_INIT_VENDOR_LIB := libinit_msm
 
 BOARD_HARDWARE_CLASS := device/lge/gee-common/cmhw/
 
