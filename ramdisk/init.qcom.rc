@@ -178,6 +178,8 @@ on post-fs-data
 # to observe dnsmasq.leases file for dhcp information of soft ap.
     chown dhcp system /data/misc/dhcp
 
+    write /dev/wcnss_wlan 1
+
     mkdir /data/misc/playready
     restorecon /data/misc/playready
     mkdir /data/misc/tzapps
