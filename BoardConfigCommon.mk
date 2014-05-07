@@ -48,7 +48,7 @@ BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom lpj=67677 user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
-TARGET_KERNEL_SOURCE := kernel/lge/geeb
+TARGET_KERNEL_SOURCE := kernel/lge/cm_google_msm
 TARGET_KERNEL_CONFIG := geeb_defconfig
 
 BOARD_USES_ALSA_AUDIO:= true
@@ -71,7 +71,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/gee-common/bluetooth
 
 # Use the CM PowerHAL
 TARGET_USES_CM_POWERHAL := true
-TARGET_POWERHAL_TOUCH_BOOST := true
 
 # FIXME: HOSTAPD-derived wifi driver
 BOARD_HAS_QCOM_WLAN := true
@@ -158,20 +157,3 @@ HAVE_ADRENO_SOURCE:= false
 -include vendor/lge/gee/BoardConfigVendor.mk
 
 BOARD_HARDWARE_CLASS := device/lge/gee-common/cmhw/
-
-#TWRP config
-DEVICE_RESOLUTION := 720x1280
-RECOVERY_SDCARD_ON_DATA := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-BOARD_HAS_NO_REAL_SDCARD := true
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-#TARGET_RECOVERY_INITRC := device/samsung/tuna/init.recovery.rc
-#TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_JB_CRYPTO := true
-TW_FLASH_FROM_STORAGE := true
-TW_NO_USB_STORAGE := true
-
-TW_INTERNAL_STORAGE_PATH := "/data/media"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
