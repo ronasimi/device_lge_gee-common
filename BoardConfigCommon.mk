@@ -70,7 +70,6 @@ TARGET_BOARD_INFO_FILE := device/lge/geeb/board-info.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/gee-common/bluetooth
 
 # Set the PowerHAL
-TARGET_POWERHAL_VARIANT := google
 TARGET_POWERHAL_TOUCH_BOOST := true
 
 # FIXME: HOSTAPD-derived wifi driver
