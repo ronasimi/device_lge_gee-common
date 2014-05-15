@@ -40,8 +40,6 @@ ARCH_ARM_HIGH_OPTIMIZATION := true
 # Enable various prefetch optimizations
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 
-TARGET_MPDECISION_BOOST_SOCKET := /dev/socket/mpdecision/touchboost
-
 TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
