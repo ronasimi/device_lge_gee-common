@@ -104,6 +104,16 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
+# Hardware codecs
+PRODUCT_PROPERTY_OVERRIDES += \
+     qcom.hw.aac.encoder=true
+ 
+ PRODUCT_PACKAGES += \
+     libOmxAacEnc \
+     libOmxAmrEnc \
+     libOmxEvrcEnc \
+     libOmxQcelp13Enc
+
 # NFC packages
 PRODUCT_PACKAGES += \
 	libnfc \
